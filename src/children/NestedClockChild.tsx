@@ -88,7 +88,7 @@ const _MemoClockGrandChild = () => {
     <div
       className="grandChildContainer"
       data-testid="Clock-Child"
-      style={{ backgroundColor: color }}
+      style={{ backgroundColor: color, color: '#000' }}
     >
       <h3>👦 Memo Clock Grand Child</h3>
       <p>

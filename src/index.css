@@ -63,19 +63,6 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
-}
-
 .container {
   padding: 2rem;
 }
@@ -83,19 +70,27 @@ button:focus-visible {
 .parentChildren {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
 }
 
 .childContainer{
-  display: inline-block;
-  flex-grow: 1;
-  max-width: 40%;
+  flex: 100%;  
   margin: 0.5rem;
   padding: 1rem;
   border: 2px solid #ccc;
   border-radius: 5px;
   background-color: #333;
 }
+
+
+
+
+@media  (min-width: 768px) {
+  .childContainer {
+      flex: calc(50% - 4px - 3rem);
+  }
+}
+  
+
 
 .grandChildContainer {
   display: inline-block;
