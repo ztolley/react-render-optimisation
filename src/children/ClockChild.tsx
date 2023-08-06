@@ -1,8 +1,7 @@
 import { useClockData } from '../hooks'
 
 export const ClockChild = () => {
-  const { isAlarmSet, isRunning, setAlarmOff, setAlarmOn, time } =
-    useClockData()!
+  const { isAlarmSet, setAlarmOff, setAlarmOn, time } = useClockData()!
 
   const color = 'darkslategray'
 
