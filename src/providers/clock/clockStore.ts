@@ -21,7 +21,7 @@ export const useClockStore = () => {
   // changing data
   const toggle = useCallback(
     (message: string) => {
-      console.log(`%c🕰 Clock store toggle time: ${message}`, consoleStyle)
+      console.log(`%c⏰ Clock store toggle time: ${message}`, consoleStyle)
       setIsRunning(!isRunning)
     },
     [isRunning]
@@ -30,12 +30,12 @@ export const useClockStore = () => {
   )
 
   const setAlarmOn = useCallback(() => {
-    console.log('%c🕰 Clock store set alarm on', consoleStyle)
+    console.log('%c⏰ Clock store set alarm on', consoleStyle)
     setIsAlarmSet(true)
   }, [])
 
   const setAlarmOff = useCallback(() => {
-    console.log('%c🕰 Clock store set alarm off', consoleStyle)
+    console.log('%c⏰ Clock store set alarm off', consoleStyle)
     setIsAlarmSet(false)
   }, [])
 
@@ -44,7 +44,7 @@ export const useClockStore = () => {
   // so only use state when needed, otherwise use refs
 
   // any functions exported should use useCallback
-  console.log('%c🕰 Clock Store Render', consoleStyle)
+  console.log('%c⏰ Clock Store Render', consoleStyle)
 
   useInterval(() => {
     if (!isRunning) return

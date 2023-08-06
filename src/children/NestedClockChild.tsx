@@ -33,7 +33,7 @@ export const NestedClockChild = () => {
 }
 
 const ClockGrandChild = () => {
-  const { toggle, time } = useClockData()!
+  const { isRunning, toggle, time } = useClockData()!
 
   const color = '#556b2f'
 
@@ -61,7 +61,11 @@ const ClockGrandChild = () => {
       </p>
       <p>{time.toLocaleTimeString()}</p>
       <div>
-        <button type="button" onClick={() => toggle('Grand Child')}>
+        <button
+          className={isRunning ? 'on' : 'off'}
+          type="button"
+          onClick={() => toggle('Grand Child')}
+        >
           Toggle Clock
         </button>
       </div>
@@ -70,7 +74,7 @@ const ClockGrandChild = () => {
 }
 
 const _MemoClockGrandChild = () => {
-  const { toggle, time } = useClockData()!
+  const { isRunning, toggle, time } = useClockData()!
 
   const color = '#daa520'
 
@@ -97,7 +101,11 @@ const _MemoClockGrandChild = () => {
       </p>
       <p>{time.toLocaleTimeString()}</p>
       <div>
-        <button type="button" onClick={() => toggle('Grand Child')}>
+        <button
+          className={isRunning ? 'on' : 'off'}
+          type="button"
+          onClick={() => toggle('Grand Child')}
+        >
           Toggle Clock
         </button>
       </div>

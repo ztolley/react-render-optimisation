@@ -1,9 +1,11 @@
 import { useState } from 'react'
 import {
+  ChildWithUseMemo,
   ClockChild,
   ConditionalMemoClockChild,
   MemoChild,
   MemoChildUpdateParentState,
+  MemoChildWithProp,
   MemoChildWithState,
   MemoClockChild,
   NestedClockChild,
@@ -22,6 +24,7 @@ const consoleStyle = [
 
 const App = () => {
   const [count, setCount] = useState(0)
+  const [toggle, setToggle] = useState(true)
 
   console.log('%c👨‍🦳 Parent Render', consoleStyle)
 
@@ -40,8 +43,16 @@ const App = () => {
           <button
             className="increment-button"
             onClick={() => setCount((c) => c + 1)}
+            type="button"
           >
             Increment
+          </button>
+          <button
+            className={`toggle-button ${toggle ? 'on' : 'off'}`}
+            onClick={() => setToggle((t) => !t)}
+            type="button"
+          >
+            Toggle
           </button>
         </p>
 
@@ -49,11 +60,13 @@ const App = () => {
           <NormalChild />
           <MemoChild />
           <MemoChildWithState />
+          <MemoChildWithProp count={count} />
           <MemoChildUpdateParentState setCount={setCount} />
           <ClockChild />
           <MemoClockChild />
           <NestedClockChild />
           <ConditionalMemoClockChild />
+          <ChildWithUseMemo />
         </div>
       </div>
     </Providers>

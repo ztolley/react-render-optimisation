@@ -1,7 +1,8 @@
 import { useClockData } from '../hooks'
 
 export const ClockChild = () => {
-  const { isAlarmSet, setAlarmOff, setAlarmOn, time } = useClockData()!
+  const { isAlarmSet, isRunning, setAlarmOff, setAlarmOn, time } =
+    useClockData()!
 
   const color = 'darkslategray'
 
@@ -13,6 +14,14 @@ export const ClockChild = () => {
   ].join(';')
 
   console.log('%c👯 Clock Child Render ‍', consoleStyle)
+
+  const toggleAlarm = () => {
+    if (isAlarmSet) {
+      setAlarmOff()
+    } else {
+      setAlarmOn()
+    }
+  }
 
   return (
     <div
@@ -26,11 +35,12 @@ export const ClockChild = () => {
         {time.toLocaleTimeString()} - Alarm is {isAlarmSet ? 'on' : 'off'}
       </p>
       <p>
-        <button type="button" onClick={() => setAlarmOn()}>
-          Turn alarm on
-        </button>
-        <button type="button" onClick={() => setAlarmOff()}>
-          Turn alarm off
+        <button
+          className={isAlarmSet ? 'on' : 'off'}
+          type="button"
+          onClick={toggleAlarm}
+        >
+          Toggle Alarm
         </button>
       </p>
     </div>
